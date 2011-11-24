@@ -1,0 +1,11 @@
+<plugin>
+    <name>Media Player Plugin</name>
+    <version>0.1</version>
+    <author>Hendrik Bergunde</author>
+    <homePage>http://hendrik.bergunde.com</homePage>
+    <email>hbergunde@gmx.de</email>
+    <description>Currently enables you to post "now playing:" to your chats</description>
+    <class>org.jivesoftware.spark.plugin.mediaplayer.MediaPlayerPlugin</class>
+    <minSparkVersion>2.6.0</minSparkVersion>
+    <java>1.6.0_00</java>
+</plugin>

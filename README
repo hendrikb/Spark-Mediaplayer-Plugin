@@ -1,0 +1,33 @@
+This is the SPARK MEDIAPLAYER PLUGIN for the XMPP client Spark.
+
+Additional information on Spark can be found at:
+http://www.igniterealtime.org/projects/spark/index.jsp
+
+CURRENTLY SUPPORTED MEDIAPLAYERS:
+ * iTunes Windows & iTunes Mac (tested as of Nov'11)
+ * ... more to come.
+ 
+ CURRENTLY IMPLEMENTED FEATURES:
+  * "now playing"-button in the ChatBox will paste current song playing
+  	if you use iTunes (Win & Mac)
+  
+
+As You can see, this is a VERY EARLY version of this plugin
+
+
+== INSTALLATION ==
+
+ Compile against a current spark source code or jar, basically it's a great idea to ..
+ 1st check out the spark source code (see link above)
+ 2nd put this projects checkout into spark_dir/src/plugins/mediaplayer
+ 3nd (it's also great if you got Apache ANT installed), go to spark_dir/build/
+ 	and enter "ant" to compile
+ 4th go to spark_dir/src/plugins/mediaplayer/build/ and also compile here with "ant"
+ 5th start spark
+ 
+ 
+ You can also modify the build.plugins target in the ant script spark_dir/build/build.xml
+ to let ant compile Spark's source code plus the mediaplayer plugin (step 3 + step 4) in
+ one step.
+ 
+ I'll probably provide a current jar in the near future. 
