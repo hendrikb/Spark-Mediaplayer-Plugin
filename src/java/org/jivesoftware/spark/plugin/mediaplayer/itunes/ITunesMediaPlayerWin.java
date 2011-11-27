@@ -15,7 +15,7 @@ public class ITunesMediaPlayerWin implements MediaPlayer {
 	@Override
 	public SongInfo getCurrentPlayingSong() {
 		System.out.println("Creating iTunes Wrapper for Windows");
-		IiTunes itunes = ClassFactory.createiTunesApp();
+		final IiTunes itunes = ClassFactory.createiTunesApp();
 		System.out.println("... it worked. Querying iTunes for current track");
 		IITTrack track = itunes.currentTrack();
 		if (track != null) {

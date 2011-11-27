@@ -1,33 +1,52 @@
-This is the SPARK MEDIAPLAYER PLUGIN for the XMPP client Spark.
+== INFO == 
 
-Additional information on Spark can be found at:
-http://www.igniterealtime.org/projects/spark/index.jsp
+This is the SPARK MEDIAPLAYER PLUGIN for the XMPP client Spark. 
 
-CURRENTLY SUPPORTED MEDIAPLAYERS:
- * iTunes Windows & iTunes Mac (tested as of Nov'11)
- * ... more to come.
- 
- CURRENTLY IMPLEMENTED FEATURES:
-  * "now playing"-button in the ChatBox will paste current song playing
-  	if you use iTunes (Win & Mac)
-  
+Additional information on Spark can be found at: 
+http://www.igniterealtime.org/projects/spark/index.jsp 
 
-As You can see, this is a VERY EARLY version of this plugin
+CURRENTLY SUPPORTED MEDIAPLAYERS: * iTunes Windows & iTunes Mac (tested 
+as of Nov'11) * ... more to come. CURRENTLY IMPLEMENTED FEATURES: * "now 
+playing"-button in the ChatBox will paste current song playing if you 
+use iTunes (Win & Mac) 
+
+As You can see, this is a VERY EARLY version of this plugin 
 
 
-== INSTALLATION ==
+== INSTALLATION == 
 
- Compile against a current spark source code or jar, basically it's a great idea to ..
- 1st check out the spark source code (see link above)
- 2nd put this projects checkout into spark_dir/src/plugins/mediaplayer
- 3nd (it's also great if you got Apache ANT installed), go to spark_dir/build/
- 	and enter "ant" to compile
- 4th go to spark_dir/src/plugins/mediaplayer/build/ and also compile here with "ant"
- 5th start spark
- 
- 
- You can also modify the build.plugins target in the ant script spark_dir/build/build.xml
- to let ant compile Spark's source code plus the mediaplayer plugin (step 3 + step 4) in
- one step.
- 
- I'll probably provide a current jar in the near future. 
+Compile against a current spark source code or jar, basically it's a 
+great idea to ..
+1st check out the spark source code (see link above)
+2nd put this projects checkout into spark_dir/src/plugins/mediaplayer
+3nd (it's also great if you got Apache ANT installed), go to 
+	spark_dir/build/ and enter "ant" to compile
+4th go to spark_dir/src/plugins/mediaplayer/build/ and also compile here
+with "ant"
+5th start spark You can also modify the build.plugins target in the ant
+script spark_dir/build/build.xml to let ant compile Spark's source code
+plus the mediaplayer plugin (step 3 + step 4) in one step. I'll probably
+provide a current jar in the near future.
+
+
+== Links & Further Infos ==
+
+The note icon comes from here: 
+http://www.iconfinder.com/icondetails/43380/16/music_note_icon
+
+COM4J, a Java library that allows Java applications to seemlessly
+interoperate  with Microsoft Component Object Model - needed for
+iTunes communication on Windows: http://com4j.java.net/
+
+
+== License ==
+
+This plugin was created by Hendrik Bergunde <hbergunde@gmx.de> and
+Steven Mohr <steven@stevemohr.de>. 
+
+The Spark source code is governed by the Apache-License 2, which can be
+found in the LICENSE.html file in this distribution. Spark also contains
+Open Source software from third-parties. Spark was created by Jive Software.
+
+The SPARK MEDIAPLAYER PLUGIN is therefore also governed by the
+Apache-License 2, which can be found in LICENSE.html.
