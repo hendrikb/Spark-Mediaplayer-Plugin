@@ -3,5 +3,7 @@
 # .gitignore
 bin/*
 build/classes/*
+target/*
+
 *.class
 reports/*
