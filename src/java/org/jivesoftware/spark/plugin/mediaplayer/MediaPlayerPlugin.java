@@ -6,10 +6,14 @@ package org.jivesoftware.spark.plugin.mediaplayer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+
 import org.jivesoftware.spark.ChatManager;
 import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.plugin.Plugin;
 import org.jivesoftware.spark.plugin.mediaplayer.itunes.ITunesMediaPlayerFactory;
+import org.jivesoftware.spark.plugin.mediaplayer.pref.MediaPlayerPluginPreferences;
+import org.jivesoftware.spark.preference.PreferenceManager;
 import org.jivesoftware.spark.ui.ChatInputEditor;
 import org.jivesoftware.spark.ui.ChatRoom;
 import org.jivesoftware.spark.ui.ChatRoomButton;
@@ -21,6 +25,9 @@ import org.jivesoftware.spark.ui.ChatRoomListenerAdapter;
  */
 public class MediaPlayerPlugin implements Plugin {
 
+	public static final ImageIcon PLUGIN_ICON = new ImageIcon("note_16.png");
+	public static final String PLUGIN_NAME = "Media Player Control Plugin";
+
 	/**
 	 * Initializes the Mediaplayer Plugin
 	 * 
@@ -31,13 +38,18 @@ public class MediaPlayerPlugin implements Plugin {
 
 		// TODO provide basic Preferences Page
 
+		PreferenceManager pm = SparkManager.getPreferenceManager();
+		pm.addPreference(new MediaPlayerPluginPreferences());
+
 		ChatManager cm = SparkManager.getChatManager();
 		cm.addChatRoomListener(new ChatRoomListenerAdapter() {
 			@Override
 			public void chatRoomOpened(ChatRoom room) {
 
 				//TODO: Use Button here, not "np: "
-				ChatRoomButton cb = new ChatRoomButton("np: ");
+				ImageIcon icon = MediaPlayerPlugin.PLUGIN_ICON;
+				ChatRoomButton cb = new ChatRoomButton(icon);
+
 				final ChatInputEditor cie = room.getChatInputEditor();
 				cb.addActionListener(new ActionListener() {
 

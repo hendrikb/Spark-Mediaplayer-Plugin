@@ -1,6 +1,6 @@
 <plugin>
-    <name>Media Player Plugin</name>
-    <version>0.1</version>
+    <name>Media Player Control Plugin</name>
+    <version>0.2</version>
     <author>Hendrik Bergunde</author>
     <homePage>http://hendrik.bergunde.com</homePage>
     <email>hbergunde@gmx.de</email>
