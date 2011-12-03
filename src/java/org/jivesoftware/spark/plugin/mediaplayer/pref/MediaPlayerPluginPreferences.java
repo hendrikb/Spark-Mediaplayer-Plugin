@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import org.jivesoftware.spark.plugin.mediaplayer.MediaPlayerPlugin;
+import org.jivesoftware.spark.plugin.mediaplayer.util.MPResources;
 import org.jivesoftware.spark.preference.Preference;
 
 
@@ -23,7 +24,7 @@ public class MediaPlayerPluginPreferences implements Preference {
 
 	@Override
 	public Icon getIcon() {
-		return MediaPlayerPlugin.PLUGIN_ICON;
+		return MPResources.getIcon(MediaPlayerPlugin.PLUGIN_ICON_24);
 	}
 
 	@Override

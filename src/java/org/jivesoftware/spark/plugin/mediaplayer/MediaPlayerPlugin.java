@@ -13,6 +13,7 @@ import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.plugin.Plugin;
 import org.jivesoftware.spark.plugin.mediaplayer.itunes.ITunesMediaPlayerFactory;
 import org.jivesoftware.spark.plugin.mediaplayer.pref.MediaPlayerPluginPreferences;
+import org.jivesoftware.spark.plugin.mediaplayer.util.MPResources;
 import org.jivesoftware.spark.preference.PreferenceManager;
 import org.jivesoftware.spark.ui.ChatInputEditor;
 import org.jivesoftware.spark.ui.ChatRoom;
@@ -25,7 +26,9 @@ import org.jivesoftware.spark.ui.ChatRoomListenerAdapter;
  */
 public class MediaPlayerPlugin implements Plugin {
 
-	public static final ImageIcon PLUGIN_ICON = new ImageIcon("note_16.png");
+	public static final String PLUGIN_ICON_16 = "note_16.png";
+	public static final String PLUGIN_ICON_24 = "note_24.png";
+	public static final String PLUGIN_ICON_32 = "note_32.png";
 	public static final String PLUGIN_NAME = "Media Player Control Plugin";
 
 	/**
@@ -47,7 +50,7 @@ public class MediaPlayerPlugin implements Plugin {
 			public void chatRoomOpened(ChatRoom room) {
 
 				//TODO: Use Button here, not "np: "
-				ImageIcon icon = MediaPlayerPlugin.PLUGIN_ICON;
+				ImageIcon icon = MPResources.getIcon(MediaPlayerPlugin.PLUGIN_ICON_16);
 				ChatRoomButton cb = new ChatRoomButton(icon);
 
 				final ChatInputEditor cie = room.getChatInputEditor();
