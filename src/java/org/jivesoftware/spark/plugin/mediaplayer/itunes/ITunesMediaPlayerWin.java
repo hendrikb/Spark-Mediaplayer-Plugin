@@ -14,15 +14,11 @@ import com4j.itunes.IiTunes;
 public class ITunesMediaPlayerWin implements MediaPlayer {
 	@Override
 	public SongInfo getCurrentPlayingSong() {
-		System.out.println("Creating iTunes Wrapper for Windows");
 		final IiTunes itunes = ClassFactory.createiTunesApp();
-		System.out.println("... it worked. Querying iTunes for current track");
 		IITTrack track = itunes.currentTrack();
 		if (track != null) {
-			System.out.println("Got the Track. :)");
 			return new SongInfo(track.artist(), track.name());
 		}
-		System.out.println("Current track seems to be null.");
 		return null;
 	}
 }

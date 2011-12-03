@@ -22,16 +22,21 @@ import org.jivesoftware.spark.ui.ChatRoomListenerAdapter;
 public class MediaPlayerPlugin implements Plugin {
 
 	/**
+	 * Initializes the Mediaplayer Plugin
+	 * 
 	 * @see org.jivesoftware.spark.plugin.Plugin#initialize()
 	 */
 	@Override
 	public void initialize() {
-		System.out.println("Initializing Now Playing plugin");
+
+		// TODO provide basic Preferences Page
+
 		ChatManager cm = SparkManager.getChatManager();
 		cm.addChatRoomListener(new ChatRoomListenerAdapter() {
 			@Override
 			public void chatRoomOpened(ChatRoom room) {
 
+				//TODO: Use Button here, not "np: "
 				ChatRoomButton cb = new ChatRoomButton("np: ");
 				final ChatInputEditor cie = room.getChatInputEditor();
 				cb.addActionListener(new ActionListener() {
@@ -39,13 +44,13 @@ public class MediaPlayerPlugin implements Plugin {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						MediaPlayer mp = ITunesMediaPlayerFactory.getITunesMediaPlayer();
-						System.out.println("Querying iTunes");
 						if (mp != null) {
 							SongInfo si = mp.getCurrentPlayingSong();
 							if (si != null) {
+
+								//TODO: Support Placeholder Usage, not just "np: $artist - $song"
 								cie.setText("np: " + si.getArtist() + " - " + si.getTitle());
 							}
-							else System.out.println("Couldn't get any iTunes data");
 						}
 					}
 				});
@@ -62,7 +67,6 @@ public class MediaPlayerPlugin implements Plugin {
 	@Override
 	public void shutdown() {
 
-		// TODO Method shutdown was added 22.11.2011 needs implementing 
 	}
 
 	/**
@@ -71,17 +75,12 @@ public class MediaPlayerPlugin implements Plugin {
 	@Override
 	public boolean canShutDown() {
 		return false;
-
-		// TODO Method canShutDown was added 22.11.2011 needs implementing 
 	}
 
 	/**
 	 * @see org.jivesoftware.spark.plugin.Plugin#uninstall()
 	 */
 	@Override
-	public void uninstall() {
-
-		// TODO Method uninstall was added 22.11.2011 needs implementing 
-	}
+	public void uninstall() {}
 
 }

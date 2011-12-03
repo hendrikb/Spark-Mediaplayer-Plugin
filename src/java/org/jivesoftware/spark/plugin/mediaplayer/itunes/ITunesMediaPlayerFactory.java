@@ -24,14 +24,11 @@ public class ITunesMediaPlayerFactory {
 		final String osName = System.getProperty("os.name");
 		System.out.println("Querying OS for iTunes determination: " + osName);
 		if (osName.contains("Windows")) {
-			System.out.println("Got Windows");
 			return new ITunesMediaPlayerWin();
 		}
 		else if (osName.toLowerCase().equals("mac os x")) {
-			System.out.println("Got Mac: " + osName);
 			return new ITunesMediaPlayerMac();
 		}
-		System.out.println("Got Nothing.");
 		return null;
 	}
 

@@ -5,9 +5,13 @@ This is the SPARK MEDIAPLAYER PLUGIN for the XMPP client Spark.
 Additional information on Spark can be found at: 
 http://www.igniterealtime.org/projects/spark/index.jsp 
 
-CURRENTLY SUPPORTED MEDIAPLAYERS: * iTunes Windows & iTunes Mac (tested 
-as of Nov'11) * ... more to come. CURRENTLY IMPLEMENTED FEATURES: * "now 
-playing"-button in the ChatBox will paste current song playing if you 
+CURRENTLY SUPPORTED MEDIAPLAYERS:
+* iTunes Windows & iTunes Mac (tested as of Nov'11)
+* ... more to come.
+
+
+CURRENTLY IMPLEMENTED FEATURES:
+* "now playing"-button in the ChatBox will paste current song playing if you 
 use iTunes (Win & Mac) 
 
 As You can see, this is a VERY EARLY version of this plugin 
