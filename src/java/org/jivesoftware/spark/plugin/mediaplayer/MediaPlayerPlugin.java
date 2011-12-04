@@ -47,6 +47,8 @@ public class MediaPlayerPlugin implements Plugin {
 
 		ChatManager cm = SparkManager.getChatManager();
 		cm.addChatRoomListener(new ChatRoomListenerAdapter() {
+			private MPProperties pref;
+
 			@Override
 			public void chatRoomOpened(ChatRoom room) {
 
@@ -63,7 +65,7 @@ public class MediaPlayerPlugin implements Plugin {
 						if (mp != null) {
 							SongInfo si = mp.getCurrentPlayingSong();
 							if (si != null) {
-								MPProperties pref = MPProperties.getInstance();
+								pref = MPProperties.getInstance();
 								String output = pref.getMpcpFormat();
 								output.replaceAll("\\$artist", si.getArtist()).replaceAll("\\$title", si.getTitle());
 
@@ -73,7 +75,10 @@ public class MediaPlayerPlugin implements Plugin {
 					}
 				});
 
-				room.getEditorBar().add(cb);
+				// read from preferences if we should display the button:
+				if (pref.getMpcpDisplayNpButton()) {
+					room.getEditorBar().add(cb);
+				}
 
 			}
 		});
