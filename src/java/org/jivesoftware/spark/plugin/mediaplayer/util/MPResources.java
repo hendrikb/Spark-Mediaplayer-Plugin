@@ -7,7 +7,6 @@ package org.jivesoftware.spark.plugin.mediaplayer.util;
  */
 import java.text.MessageFormat;
 import java.util.PropertyResourceBundle;
-import java.util.ResourceBundle;
 
 import javax.swing.ImageIcon;
 
@@ -20,9 +19,9 @@ public class MPResources {
 
 	static ClassLoader cl = MPResources.class.getClassLoader();
 
-	static {
-		prb = (PropertyResourceBundle) ResourceBundle.getBundle("i18n/otrplugin_i18n");
-	}
+	//	static {
+	//		prb = (PropertyResourceBundle) ResourceBundle.getBundle("i18n/otrplugin_i18n");
+	//	}
 
 	/**
 	 * Returns a string from the language file
@@ -41,7 +40,7 @@ public class MPResources {
 	}
 
 	/**
-	 * Returns an ImageIcon from OTR resources folder
+	 * Returns an ImageIcon from MP-Plugin resources folder
 	 * 
 	 * @param fileName
 	 * @return
