@@ -1,7 +1,10 @@
 package org.jivesoftware.spark.plugin.mediaplayer.pref;
 
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -49,27 +52,35 @@ public class MediaPlayerPluginPreferences implements Preference {
 	@Override
 	public JComponent getGUI() {
 
-		JPanel panel = new JPanel(new GridLayout(3, 2));
+		JPanel panel = new JPanel(new GridBagLayout());
+		panel.setBorder(BorderFactory.createTitledBorder("Media player plugins"));
 
 		JLabel lDisplayButton = new JLabel("Add Button to the ChatBox Window");
 		cbDisplayButton = new JCheckBox();
 
-		panel.add(lDisplayButton);
-		panel.add(cbDisplayButton);
+		panel.add(lDisplayButton, new GridBagConstraints(0, 0, 1, 1, 1.0, 0.0, GridBagConstraints.NORTHWEST, 
+		    GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+		panel.add(cbDisplayButton, new GridBagConstraints(1, 0, 1, 1, 1.0, 0.0, GridBagConstraints.NORTHEAST, 
+            GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
 
 		JLabel lPlayers = new JLabel("Select Media Player");
 		comboPlayers = new JComboBox();
 		comboPlayers.addItem("iTunes");
 
-		panel.add(lPlayers);
-		panel.add(comboPlayers);
+		panel.add(lPlayers, new GridBagConstraints(0, 1, 1, 1, 1.0, 0.0, GridBagConstraints.NORTHWEST, 
+            GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+		
+		panel.add(comboPlayers, new GridBagConstraints(1, 1, 1, 1, 1.0, 0.0, GridBagConstraints.NORTHEAST, 
+            GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
 
 		JLabel lFormat = new JLabel("Select Output Format");
 		tfFormat = new JTextField();
 		tfFormat.setToolTipText("Available: $artist, $title");
 
-		panel.add(lFormat);
-		panel.add(tfFormat);
+		panel.add(lFormat, new GridBagConstraints(0, 2, 1, 1, 1.0, 0.0, GridBagConstraints.NORTHWEST, 
+            GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+		panel.add(tfFormat, new GridBagConstraints(1, 2, 4, 4, 1.0, 0.0, GridBagConstraints.NORTHEAST, 
+            GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
 		return panel;
 	}
