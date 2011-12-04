@@ -17,6 +17,10 @@ import org.jivesoftware.spark.preference.Preference;
 
 public class MediaPlayerPluginPreferences implements Preference {
 
+	private JCheckBox cbDisplayButton;
+	private JComboBox comboPlayers;
+	private JTextField tfFormat;
+
 	@Override
 	public String getTitle() {
 		return MediaPlayerPlugin.PLUGIN_NAME;
@@ -48,20 +52,20 @@ public class MediaPlayerPluginPreferences implements Preference {
 		JPanel panel = new JPanel(new GridLayout(3, 2));
 
 		JLabel lDisplayButton = new JLabel("Add Button to the ChatBox Window");
-		JCheckBox cbDisplayButton = new JCheckBox();
+		cbDisplayButton = new JCheckBox();
 
 		panel.add(lDisplayButton);
 		panel.add(cbDisplayButton);
 
 		JLabel lPlayers = new JLabel("Select Media Player");
-		JComboBox comboPlayers = new JComboBox();
+		comboPlayers = new JComboBox();
 		comboPlayers.addItem("iTunes");
 
 		panel.add(lPlayers);
 		panel.add(comboPlayers);
 
 		JLabel lFormat = new JLabel("Select Output Format");
-		JTextField tfFormat = new JTextField();
+		tfFormat = new JTextField();
 		tfFormat.setToolTipText("Available: $artist, $title");
 
 		panel.add(lFormat);
@@ -74,11 +78,13 @@ public class MediaPlayerPluginPreferences implements Preference {
 	public void load() {}
 
 	@Override
-	public void commit() {}
+	public void commit() {
+
+	}
 
 	@Override
 	public boolean isDataValid() {
-		return false;
+		return true;
 	}
 
 	@Override
