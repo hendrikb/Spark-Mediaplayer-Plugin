@@ -20,6 +20,7 @@ public class MediaPlayerPluginPreferences implements Preference {
 	private JCheckBox cbDisplayButton;
 	private JComboBox comboPlayers;
 	private JTextField tfFormat;
+	private final MPProperties pref = MPProperties.getInstance();
 
 	@Override
 	public String getTitle() {
@@ -75,11 +76,17 @@ public class MediaPlayerPluginPreferences implements Preference {
 	}
 
 	@Override
-	public void load() {}
+	public void load() {
+		comboPlayers.setSelectedIndex(0);
+		cbDisplayButton.setSelected(pref.getMpcpDisplayNpButton());
+		tfFormat.setText(pref.getMpcpFormat());
+	}
 
 	@Override
 	public void commit() {
-
+		pref.setMpcpDisplayNpButton(cbDisplayButton.isSelected());
+		pref.setMpcpFormat(tfFormat.getText());
+		pref.save();
 	}
 
 	@Override
