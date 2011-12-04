@@ -12,6 +12,7 @@ import org.jivesoftware.spark.ChatManager;
 import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.plugin.Plugin;
 import org.jivesoftware.spark.plugin.mediaplayer.itunes.ITunesMediaPlayerFactory;
+import org.jivesoftware.spark.plugin.mediaplayer.pref.MPProperties;
 import org.jivesoftware.spark.plugin.mediaplayer.pref.MediaPlayerPluginPreferences;
 import org.jivesoftware.spark.plugin.mediaplayer.util.MPResources;
 import org.jivesoftware.spark.preference.PreferenceManager;
@@ -46,6 +47,8 @@ public class MediaPlayerPlugin implements Plugin {
 
 		ChatManager cm = SparkManager.getChatManager();
 		cm.addChatRoomListener(new ChatRoomListenerAdapter() {
+			private MPProperties pref;
+
 			@Override
 			public void chatRoomOpened(ChatRoom room) {
 
@@ -62,15 +65,20 @@ public class MediaPlayerPlugin implements Plugin {
 						if (mp != null) {
 							SongInfo si = mp.getCurrentPlayingSong();
 							if (si != null) {
+								pref = MPProperties.getInstance();
+								String output = pref.getMpcpFormat();
+								output.replaceAll("\\$artist", si.getArtist()).replaceAll("\\$title", si.getTitle());
 
-								//TODO: Support Placeholder Usage, not just "np: $artist - $song"
-								cie.setText("np: " + si.getArtist() + " - " + si.getTitle());
+								cie.setText(output);
 							}
 						}
 					}
 				});
 
-				room.getEditorBar().add(cb);
+				// read from preferences if we should display the button:
+				if (pref.getMpcpDisplayNpButton()) {
+					room.getEditorBar().add(cb);
+				}
 
 			}
 		});
